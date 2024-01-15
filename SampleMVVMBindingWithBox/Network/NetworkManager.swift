@@ -27,7 +27,7 @@ class NetworkManager: NetworkManaging {
     
     func getUsers(from url: URL, completion: @escaping (Result<Data, NetworkError>) -> Void) {
         
-        URLSession.shared.dataTask(with: url) { data, response, error in
+        session.dataTask(with: url) { data, response, error in
             guard error == nil else {
                 completion(.failure(.requestFailed(error!)))
                 return
